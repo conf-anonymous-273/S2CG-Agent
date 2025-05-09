@@ -60,7 +60,7 @@ A pretrained scheduling model is available for download:
 
 👉 **[Download from Google Drive](https://drive.google.com/drive/folders/1oJHKY68PuwQizpEz54wvDD4hlfsIl3ns?usp=share_link)**
 
-After downloading, place the model files in the appropriate directory (e.g., `S2CG-Agent-main/`).
+After downloading, place the model files in the appropriate directory (e.g., `S2CG-Agent-main/trained_decision_model/`).
 
 ## 📊 Evaluation
 
