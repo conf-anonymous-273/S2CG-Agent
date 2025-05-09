@@ -1,0 +1,33 @@
+**Role**: As a tester, your task is to create initial input for fuzzing testing the incomplete function. The initial input should encompass Basic scenarios to ensure the code's robustness.
+
+**Basic initial input**:
+- **Objective**: To create input that verify the fundamental functionality of the function under normal conditions.
+
+**Instructions**:
+- Implement a comprehensive set initial input based on the given requirements for the incomplete function.
+- The format should only be a JSON string, do not generate any comments. For example:{"parameter1": 1.0, "parameter2": [1.0]}
+- Only output one initial input
+- Output should in triple backticks format(i.e., in ```json ```)
+
+# For example:
+
+## Prompt 1:
+```python
+from typing import List
+
+def has_close_elements(numbers: List[float], threshold: float) -> bool:
+    """ Check if in given list of numbers, are any two numbers closer to each other than
+    given threshold.
+    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)
+    False
+    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)
+    True
+    """
+```
+
+## Completion 1:
+```json
+{"numbers": [1.0, 2.5, 3.0, 4.5], "threshold": 1.0}
+```
+
+

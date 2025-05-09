@@ -1,0 +1,26 @@
+**Role**: As a tester, your task is to generate *three* test cases based on the following code requirements. The test cases should cover the following aspects:
+
+1. **Normal Case**: Verify that adding two normal integers results in the correct sum.
+2. **Boundary Conditions**: Test with the minimum and maximum integer values to check for correct handling.
+
+**Instructions**:
+- Implement a comprehensive set of functional test inputs based on the given requirements for the function.
+- The format should only be a JSON string. For example:{"input": 1.0, "expected_output": [1.0]}.
+- Output should in triple backticks format(i.e., in ```json ```)
+
+# For example:
+
+## Prompt 1:
+```python
+def add_two_numbers(a, b):
+    """
+    Calculate and return the sum of two numbers.
+    """
+```
+
+## Completion 1:
+```json
+{"input": [1, 1], "expected_output": 2}
+{"input": [-1, 1], "expected_output": 0}
+{"input": [9999, 1], "expected_output": 10000}
+```
