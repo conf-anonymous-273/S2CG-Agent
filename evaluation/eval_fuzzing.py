@@ -140,7 +140,7 @@ if __name__ == "__main__":
     dataset = data_humaneval + data_security
 
     skipped_status = []
-    ali_api_key = 'sk-169af0ac061b4b728587197c6ba6e690'
+    ali_api_key = 'your-key'
 
     llm = Qwen_LLM(ali_api_key, 'qwen-max')  # qwen-max
     for i, entry in enumerate(dataset):
