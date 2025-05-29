@@ -19,7 +19,7 @@ S2CG-Agent-main/
 ├── OriginalLLM/ # baseline: Original LLM
 ├── SCG-Agent/ # ablation baseline: SCG-Agent
 ├── S²CG-Agent/ # S²CG-Agent
-├── trained_decision_model/ # trained scheduling model, need to download from Google Cloud
+├── trained_decision_model/ # trained scheduling model, need to download from Releases or Google Cloud
 ├── results/ # outputs of S²CG-Agent and baselines
 ├── evaluation/ # Scripts and configs for evaluating performance
 ├── requirements.txt # Python dependencies
@@ -60,6 +60,7 @@ python main.py
 A pretrained scheduling model is available for download:
 
 👉 **[Download from Google Drive](https://drive.google.com/drive/folders/1oJHKY68PuwQizpEz54wvDD4hlfsIl3ns?usp=share_link)**
+👉 **[Download from Releases](https://drive.google.com/drive/folders/1oJHKY68PuwQizpEz54wvDD4hlfsIl3ns?usp=share_link)**
 
 After downloading, place the model files in the appropriate directory (e.g., `S2CG-Agent-main/trained_decision_model/`).
 
