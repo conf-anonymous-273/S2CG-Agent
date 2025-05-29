@@ -8,6 +8,7 @@ This repository provides the official implementation of the **S²CG-Agent**, a s
 
 This repository accompanies the paper:  
 **"S²CG-Agent: A Schedulable Multi-Agent Secure Code Generation Framework"**  
+![framework](https://github.com/user-attachments/assets/716f811e-8bb5-4416-b67b-e2197d527566)
 
 ## 📁 Directory Structure
 
