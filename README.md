@@ -59,8 +59,8 @@ python main.py
 
 A pretrained scheduling model is available for download:
 
+👉 **[Download from Releases](https://github.com/conf-anonymous-273/S2CG-Agent/releases/tag/v1.0.0)**
 👉 **[Download from Google Drive](https://drive.google.com/drive/folders/1oJHKY68PuwQizpEz54wvDD4hlfsIl3ns?usp=share_link)**
-👉 **[Download from Releases](https://drive.google.com/drive/folders/1oJHKY68PuwQizpEz54wvDD4hlfsIl3ns?usp=share_link)**
 
 After downloading, place the model files in the appropriate directory (e.g., `S2CG-Agent-main/trained_decision_model/`).
 
