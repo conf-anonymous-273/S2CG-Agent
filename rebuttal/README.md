@@ -1,6 +1,6 @@
 # Common Issues
 
-## Reviewer A/B/C: Limited benckmarks
+## 1. Reviewer A/B/C: Limited benckmarks
 
 We applied S²CG-Agent on 1345 samples of SecCodePLT, which included both the possibility of models generating unsafe code and security test cases. Due to time constraints, we only evaluated the performance of S²CG-Agent. S²CG-Agent improved secure coding rate from 57% to 72.19%, improved SA-Pass@1 from 71.15% to 79.63%.
 
@@ -13,7 +13,7 @@ Results on SecCodePLT: S²CG-Agent vs. GPT-4o.
 
 <img width="425" height="97" alt="image" src="https://github.com/user-attachments/assets/dcf941e0-208a-44d2-92c5-1e2331c27d2e" />
 
-## Reviewer A/B: Failure cases
+## 2. Reviewer A/B: Failure cases
 
 S²CG-Agent failures can be attributed to scheduler prediction failure and LLM's insufficient ability to repair failures. We conducted a specific analysis on the best performing GPT-4o results: (1) Scheduler missed reports, function missed reports 0/164, static issues missed reports 1/285, Fuzz issues missed reports 6/285. (2) LLM repair failed, unit test repair failed 4/164, static problem repair failed 3/285, and fuzz problem repair failed 38/285.
 
@@ -45,7 +45,7 @@ S²CG-Agent failures can be attributed to scheduler prediction failure and LLM's
 | CWE-295_author_2.py | The OpenSSL Context creation process did not trigger an exception path |
 | CWE-611_sonar_2.py  | XML parsing does not combine input file                      |
 
-## Reviewer A/C: Statistical testing
+## 3. Reviewer A/C: Statistical testing
 
 We conducted statistical testings (p-value and effect size), and the results showed that there were significant differences between S²CG-Agent and baselines in almost all metrics (p<0.05).
 
@@ -67,7 +67,7 @@ Statistical testings on FT-Pass@1:
 
 # Reviewer-A
 
-## Question-1
+## Question-1: VS. hand-coded policies or LLM-based agent
 
 We did experiments on safe priority and function priority and LLM-Agent settings. Experimental results show that when safety is given priority, the SA-Pass@1 increases (98.59%) but the UT-Pass@1 decreases (92.68%); when function is given priority, the UT-Pass@1 increases (95.12%), but the SA-Pass@1 decreases (94.74). While LLM-Agent shows a compromise level in performance on all three metrics, S²CG-Agent outperforms hand-coded-policies and LLM-Agent based methods on all metrics.
 
@@ -81,29 +81,29 @@ SafeFirst performs static analysis, fuzzing, and unit testing in a fixed order. 
 
 <img width="864" height="176" alt="image" src="https://github.com/user-attachments/assets/f57176ba-525a-4cdd-b923-e6666585fd7f" />
 
-## Question-2
+## Question-2: Ambiguous checker outputs
 
 The output of the checker will be handed over to the "Result Parser" and will not produce ambiguous output. However, we made limitations in prompt, that is, static analysis / fuzzing related modifications can be made without destroying functionality.
 
-## Question-3
+## Question-3: Missed vulnerabilities.
 
-Please see common issues.
+Please see common issue-2.
 
 ## Issue-1: Statistical testing 
 
-Please see common issues.
+Please see common issue-3.
 
 ## Issue-2: Limited benchmarks
 
-Please see common issues.
+Please see common issue-1.
 
 # Reviewer-B
 
-## Question-1
+## Question-1: Scheduler fail
 
-Please see common issues.
+Please see common issue-2.
 
-## Question-2
+## Question-2: Scheduler evolve
 
 The scheduler does not change after training. The scheduler was trained on 2970 samples generated in other benchmarks and already has good predictive capabilities. For fairness in the evaluation, real-time prediction data was not applied to update the scheduler.
 
@@ -113,7 +113,7 @@ To further prove the effectiveness without scheduler evolution, we extended the 
 
 ## Issue-1 Limited benchmarks
 
-Please see common issues.
+Please see common issue-1.
 
 ## Issue-2 Inadequate related-works
 
@@ -122,7 +122,7 @@ We commit to adding the related works.
 # Reviewer C
 
 ## Issue-1: No obvious improvement.
-Please see common issues.
+Please see common issue-3.
 
 ## Issue-2: Results unreliable:
 
@@ -163,4 +163,4 @@ Dai, S., Xu, J., & Tao, G. (2025). A Comprehensive Study of LLM Secure Code Gene
 
 ## Issue-6: Benchmarks:
 
-Please see common issues.
+Please see common issue-1.
