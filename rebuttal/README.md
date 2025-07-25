@@ -115,7 +115,10 @@ We commit to adding the related works.
 
 # Reviewer C
 
-## Issue-1: Results unreliable:
+## Issue-1: No obvious improvement.
+Please see common issues.
+
+## Issue-2: Results unreliable:
 
 We repeated the S²CG-Agent(GPT-4o) three times, and the results of repeated experiments were stable. In addition, we aggregated the results of the repeated experiments and performed statistical testings. The results showed that there was no significant difference between the paper data and the repeated experiments results, showing the robustness of the results.
 
@@ -130,19 +133,19 @@ Result: Statistical testings on repeated results.
 📊 Outputs -> rebuttal/repeat
 ```
 
-## Issue-2: Unit test & Unfair Setting:
+## Issue-3: Unit test & Unfair Setting:
 
 S²CG-Agent is available for unit testing scenarios and is not limited to the IDE. The unit tests used to train the scheduler, give feedback, and ultimately evaluate are separate.
 
 The original LLM that does not provide feedback is the baseline we set. We also set LLM-Agent for baselines, therefore, there is no unfair problem.
 
-## Issue-3: Time-cost:
+## Issue-4: Time-cost:
 
 LLM enhanced code generation methods generally take a long time. For example, ASE'24 Best Paper PairCoder requires an average of 17.57 API calls for a complex problem, while S²CG-Agent only needs an average of 3.9 times.
 
 S²CG-Agent is affected by api call frequency and tool runtime in the working environment, while the original LLM only requires 1 call and is not affected.
 
-## Issue-4: tools:
+## Issue-5: Tools:
 
 CodeQL and Bandit are cross-complementary, CodeQL is good at logic vulnerabilities, and Bandit is sensitive to common Python vulnerabilities.
 Bear is a static analysis tool as well, and Dai et al. did comparative experiments on them, proving that the overall detection coverage of the three is similar.
@@ -151,6 +154,6 @@ Bear is a static analysis tool as well, and Dai et al. did comparative experimen
 Dai, S., Xu, J., & Tao, G. (2025). A Comprehensive Study of LLM Secure Code Generation. *ArXiv, abs/2503.15554*.
 ```
 
-## Issue-5: Benchmarks:
+## Issue-6: Benchmarks:
 
 Please see common issues.
