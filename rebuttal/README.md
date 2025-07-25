@@ -6,17 +6,17 @@ We applied S²CG-Agent on 1345 samples of SecCodePLT, which included both the po
 
 Due to time constraints, we only evaluated the performance of S²CG-Agent, of which the secure coding rate was calculated using benchmark evaluation.
 Results on SecCodePLT: S²CG-Agent vs. GPT-4o.
-
+```
 📊 Outputs -> rebuttal/NewBenchmarks/results.json
-
+```
 <img width="425" height="97" alt="image" src="https://github.com/user-attachments/assets/dcf941e0-208a-44d2-92c5-1e2331c27d2e" />
 
 ## Reviewer A/B: Failure cases
 
 S²CG-Agent failures can be attributed to (1) scheduler prediction failure and (2) LLM insufficient ability to repair failure, we conducted a specific analysis on the best performing GPT-4o results: (1) Scheduler missed reports, function missed reports 0/164, static issues missed reports 1/285, Fuzz issues missed reports 6/285. (2) LLM repair failed 4/164, static problem repair failed 3/285, and fuzz problem repair failed 38/285. Among them, the CWE types involved in scheduler prediction failure include CWE-295/339/477/...; The types of CWE involved in LLM repair failures are CWE-020/078/918/...We conducted a detailed analysis of the reasons for some sample errors, details are shown in https://github.com/conf-anonymous-273/S2CG-Agent/tree/main/rebuttal.
-
+```
 📊 Outputs -> rebuttal/error_analysis
-
+```
 **Scheduler missed report:** CWE-295, CWE-339, CWE-477, CWE-601, CWE-611
 
 **LLM repair failed:** CWE-020, CWE-022, CWE-078, CWE-079, CWE-080, CWE-090, CWE-094, CWE-113, CWE-116, CWE-117, CWE-209, CWE-215, CWE-306, CWE-321, CWE-326, CWE-400, CWE-434, CWE-502, CWE-522, CWE-601, CWE-611, CWE-641, CWE-643, CWE-730, CWE-918.
@@ -56,17 +56,17 @@ Statistical testings on SA-Pass@1:
 Statistical testings on FT-Pass@1:
 
 <img width="609" height="530" alt="image" src="https://github.com/user-attachments/assets/be7c9925-e255-4d27-980c-eb20ce4510b7" />
-
+```
 ⚙️ Codes -> rebuttal/statistical testings/p_value_cohen_d.py
-
+```
 # Reviewer-A
 
 ## Question-1
 
 We did experiments on safe priority and function priority and LLM-Agent settings. Experimental results show that when safety is given priority, the SA-Pass@1 increases (98.59%) but the UT-Pass@1 decreases (92.68%); when function is given priority, the UT-Pass@1 increases (95.12%), but the SA-Pass@1 decreases (94.74). While LLM-Agent shows a compromise level in performance on all three metrics, S²CG-Agent outperforms hand-coded-policies and LLM-Agent based methods on all metrics.
-
+```
 ⚙️ Codes -> rebuttal/hand-coded-policies
-
+```
 Result: S²CG-Agent vs. hand-coded-policies & LLM-Agent 
 SafeFirst performs static analysis, fuzzing, and unit testing in a fixed order. FuncFirst performs unit testing, static analysis, and fuzzing in a fixed order.
 
@@ -121,9 +121,9 @@ Result: S²CG-Agent(GPT-4o) repeats 3 times.
 Result: Statistical testings on repeated results.
 
 <img width="662" height="156" alt="image" src="https://github.com/user-attachments/assets/73a963ed-244f-4717-8371-d44382f66f09" />
-
+```
 📊 Outputs -> rebuttal/repeat
-
+```
 ## Issue-2: Unit test & Unfair Setting:
 
 S²CG-Agent is available for unit testing scenarios and is not limited to the IDE. The unit tests used to train the scheduler, give feedback, and ultimately evaluate are separate.
