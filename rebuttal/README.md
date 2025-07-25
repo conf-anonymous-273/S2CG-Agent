@@ -42,9 +42,11 @@ We conducted statistical testings (p-value and effect size), and the results sho
 Statistical testings on UT-Pass@1
 
 <img width="607" height="534" alt="image" src="https://github.com/user-attachments/assets/f159bd48-7e16-444c-8025-919978ba0207" />
+
 Statistical testings on SA-Pass@1
 
 <img width="610" height="531" alt="image" src="https://github.com/user-attachments/assets/559342af-74d2-4f4f-ba8e-bb4344b6dbe4" />
+
 Statistical testings on FT-Pass@1
 
 <img width="609" height="530" alt="image" src="https://github.com/user-attachments/assets/0b3433ec-99a9-45de-830f-08dbe1c9e7d7" />
@@ -53,7 +55,9 @@ Statistical testings on FT-Pass@1
 
 ## Question-1
 
-We did experiments on safe priority and function priority and LLM-Agent settings. Experimental results show that when safety is given priority, the SA-Pass@1 increases (98.59%) but the UT-Pass@1 decreases (92.68%); when function is given priority, the UT-Pass@1 increases (95.12%), but the SA-Pass@1 decreases (94.74). While LLM-Agent shows a compromise level in performance on all three metrics, S²CG-Agent outperforms hand-coded-policies and LLM-Agent based methods on all metrics.![截屏 2025-07-25 at 13.37.59@2x](/Users/chenyn/Library/Application Support/CleanShot/media/media_BhTtYP120g/截屏 2025-07-25 at 13.37.59@2x.png)
+We did experiments on safe priority and function priority and LLM-Agent settings. Experimental results show that when safety is given priority, the SA-Pass@1 increases (98.59%) but the UT-Pass@1 decreases (92.68%); when function is given priority, the UT-Pass@1 increases (95.12%), but the SA-Pass@1 decreases (94.74). While LLM-Agent shows a compromise level in performance on all three metrics, S²CG-Agent outperforms hand-coded-policies and LLM-Agent based methods on all metrics.
+
+![截屏 2025-07-25 at 13.37.59@2x](/Users/chenyn/Library/Application Support/CleanShot/media/media_BhTtYP120g/截屏 2025-07-25 at 13.37.59@2x.png)
 
 ## Question-2
 
