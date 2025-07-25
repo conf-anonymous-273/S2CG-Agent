@@ -131,7 +131,7 @@ S²CG-Agent is affected by api call frequency and tool runtime in the working en
 ## Issue-4: tools:
 
 CodeQL and Bandit are cross-complementary, CodeQL is good at logic vulnerabilities, and Bandit is sensitive to common Python vulnerabilities.
-Bear is a static analysis tool as well, and Dai et al. (in https://github.com/conf-anonymous-273/S2CG-Agent/tree/main/rebuttal) did comparative experiments on them, proving that the overall detection coverage of the three is similar.
+Bear is a static analysis tool as well, and Dai et al. did comparative experiments on them, proving that the overall detection coverage of the three is similar.
 
 Dai, S., Xu, J., & Tao, G. (2025). A Comprehensive Study of LLM Secure Code Generation. *ArXiv, abs/2503.15554*.
 
