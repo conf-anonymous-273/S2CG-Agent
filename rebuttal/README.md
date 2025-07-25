@@ -3,7 +3,9 @@
 ## Reviewer A/B/C: Limited benckmarks
  
 Results: S²CG-Agent vs. GPT-4o on SecCodePLT, 1345 samples in total.
+
 <img width="425" height="97" alt="image" src="https://github.com/user-attachments/assets/c532746a-aef5-4bfb-a62f-908d5d5d58f7" />
+
 Due to time constraints, we only evaluated the performance of S²CG-Agent. S²CG-Agent improved secure coding rate from 57% to 72.19%, improved SA-Pass@1 from 71.15% to 79.63%.
 Where the secure coding rate is obtained by the evaluation calculation provided by SecCodePLT.
 
