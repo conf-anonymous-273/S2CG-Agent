@@ -1,21 +1,22 @@
 # Common Issues
 
 ## Reviewer A/B/C: Limited benckmarks
- 
-Results: S²CG-Agent vs. GPT-4o on SecCodePLT, 1345 samples in total.
 
-<img width="425" height="97" alt="image" src="https://github.com/user-attachments/assets/c532746a-aef5-4bfb-a62f-908d5d5d58f7" />
+We applied S²CG-Agent on 1345 samples of SecCodePLT, which included both the possibility of models generating unsafe code and security test cases. Due to time constraints, we only evaluated the performance of S²CG-Agent. S²CG-Agent improved secure coding rate from 57% to 72.19%, improved SA-Pass@1 from 71.15% to 79.63%.
 
-Due to time constraints, we only evaluated the performance of S²CG-Agent. S²CG-Agent improved secure coding rate from 57% to 72.19%, improved SA-Pass@1 from 71.15% to 79.63%.
-Where the secure coding rate is obtained by the evaluation calculation provided by SecCodePLT.
+Due to time constraints, we only evaluated the performance of S²CG-Agent, of which the secure coding rate was calculated using benchmark evaluation.
+Results on SecCodePLT: S²CG-Agent vs. GPT-4o.
+<img width="425" height="97" alt="image" src="https://github.com/user-attachments/assets/dcf941e0-208a-44d2-92c5-1e2331c27d2e" />
 
 ## Reviewer A/B: Failure cases
+
+S²CG-Agent failures can be attributed to (1) scheduler prediction failure and (2) LLM insufficient ability to repair failure, we conducted a specific analysis on the best performing GPT-4o results: (1) Scheduler missed reports, function missed reports 0/164, static issues missed reports 1/285, Fuzz issues missed reports 6/285. (2) LLM repair failed 4/164, static problem repair failed 3/285, and fuzz problem repair failed 38/285. Among them, the CWE types involved in scheduler prediction failure include CWE-295/339/477/...; The types of CWE involved in LLM repair failures are CWE-020/078/918/...We conducted a detailed analysis of the reasons for some sample errors, details are shown in https://github.com/conf-anonymous-273/S2CG-Agent/tree/main/rebuttal.
 
 **Scheduler missed report:** CWE-295, CWE-339, CWE-477, CWE-601, CWE-611
 
 **LLM repair failed:** CWE-020, CWE-022, CWE-078, CWE-079, CWE-080, CWE-090, CWE-094, CWE-113, CWE-116, CWE-117, CWE-209, CWE-215, CWE-306, CWE-321, CWE-326, CWE-400, CWE-434, CWE-502, CWE-522, CWE-601, CWE-611, CWE-641, CWE-643, CWE-730, CWE-918.
 
-***LLM repair failed case analysis: (part)***
+***LLM repair failed case analysis (part):***
 
 | ID                  | Cause analysis                                               |
 | ------------------- | ------------------------------------------------------------ |
@@ -26,7 +27,7 @@ Where the secure coding rate is obtained by the evaluation calculation provided 
 | CWE-918_codeql_1.py | Incomplete implementation of subdomain whitelist function    |
 | CWE-020_codeql_1.py | Path concatenation or escape logic does not trigger any safe branches |
 
-***Scheduler missed report case analysis: (part)***
+***Scheduler missed report case analysis (part):***
 
 | ID                  | Cause analysis                                               |
 | ------------------- | ------------------------------------------------------------ |
@@ -39,17 +40,18 @@ Where the secure coding rate is obtained by the evaluation calculation provided 
 
 We conducted statistical testings (p-value and effect size), and the results showed that there were significant differences between S²CG-Agent and baselines in almost all metrics (p<0.05).
 
-Statistical testings on UT-Pass@1
+Statistical testings on UT-Pass@1:
 
-<img width="607" height="534" alt="image" src="https://github.com/user-attachments/assets/f159bd48-7e16-444c-8025-919978ba0207" />
+<img width="607" height="534" alt="image" src="https://github.com/user-attachments/assets/24797fc3-3731-41fd-9a6d-0e57d0f2fb3a" />
 
-Statistical testings on SA-Pass@1
+Statistical testings on SA-Pass@1:
 
-<img width="610" height="531" alt="image" src="https://github.com/user-attachments/assets/559342af-74d2-4f4f-ba8e-bb4344b6dbe4" />
+<img width="610" height="531" alt="image" src="https://github.com/user-attachments/assets/961153a2-1000-4bb5-91be-90dcaac61e46" />
 
-Statistical testings on FT-Pass@1
+Statistical testings on FT-Pass@1:
 
-<img width="609" height="530" alt="image" src="https://github.com/user-attachments/assets/0b3433ec-99a9-45de-830f-08dbe1c9e7d7" />
+<img width="609" height="530" alt="image" src="https://github.com/user-attachments/assets/be7c9925-e255-4d27-980c-eb20ce4510b7" />
+
 
 # Reviewer-A
 
@@ -57,7 +59,10 @@ Statistical testings on FT-Pass@1
 
 We did experiments on safe priority and function priority and LLM-Agent settings. Experimental results show that when safety is given priority, the SA-Pass@1 increases (98.59%) but the UT-Pass@1 decreases (92.68%); when function is given priority, the UT-Pass@1 increases (95.12%), but the SA-Pass@1 decreases (94.74). While LLM-Agent shows a compromise level in performance on all three metrics, S²CG-Agent outperforms hand-coded-policies and LLM-Agent based methods on all metrics.
 
-![截屏 2025-07-25 at 13.37.59@2x](/Users/chenyn/Library/Application Support/CleanShot/media/media_BhTtYP120g/截屏 2025-07-25 at 13.37.59@2x.png)
+Result: S²CG-Agent vs. hand-coded-policies & LLM-Agent 
+SafeFirst performs static analysis, fuzzing, and unit testing in a fixed order. FuncFirst performs unit testing, static analysis, and fuzzing in a fixed order.
+
+<img width="864" height="176" alt="image" src="https://github.com/user-attachments/assets/f57176ba-525a-4cdd-b923-e6666585fd7f" />
 
 ## Question-2
 
@@ -100,11 +105,14 @@ We commit to adding the related works.
 
 ## Issue-1: Results unreliable:
 
-We repeated the S²CG-Agent(GPT-4o) three times, and the results of repeated experiments were stable. In addition, we aggregated the results of the repeated experiments and performed statistical testings. The results showed that there was no significant difference between the paper data and the repeated experiments results, showing the robustness of the results. The results are shown in https://github.com/conf-anonymous-273/S2CG-Agent/tree/main/rebuttal.
+We repeated the S²CG-Agent(GPT-4o) three times, and the results of repeated experiments were stable. In addition, we aggregated the results of the repeated experiments and performed statistical testings. The results showed that there was no significant difference between the paper data and the repeated experiments results, showing the robustness of the results.
 
-![截屏 2025-07-25 at 15.59.44@2x](https://p.ipic.vip/tvkxjn.png)
+Result: S²CG-Agent(GPT-4o) repeats 3 times.
+<img width="691" height="157" alt="image" src="https://github.com/user-attachments/assets/c31e51f5-dd48-409e-a2e3-abafb57aa0de" />
 
-![截屏 2025-07-25 at 16.03.58@2x](https://p.ipic.vip/r1dgjv.png)
+Result: Statistical testings on repeated results.
+<img width="662" height="156" alt="image" src="https://github.com/user-attachments/assets/73a963ed-244f-4717-8371-d44382f66f09" />
+
 
 ## Issue-2: Unit test & Unfair Setting:
 
