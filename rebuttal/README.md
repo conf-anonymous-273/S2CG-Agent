@@ -56,17 +56,21 @@ Statistical testings on SA-Pass@1:
 Statistical testings on FT-Pass@1:
 
 <img width="609" height="530" alt="image" src="https://github.com/user-attachments/assets/be7c9925-e255-4d27-980c-eb20ce4510b7" />
+
 ```
 ⚙️ Codes -> rebuttal/statistical testings/p_value_cohen_d.py
 ```
+
 # Reviewer-A
 
 ## Question-1
 
 We did experiments on safe priority and function priority and LLM-Agent settings. Experimental results show that when safety is given priority, the SA-Pass@1 increases (98.59%) but the UT-Pass@1 decreases (92.68%); when function is given priority, the UT-Pass@1 increases (95.12%), but the SA-Pass@1 decreases (94.74). While LLM-Agent shows a compromise level in performance on all three metrics, S²CG-Agent outperforms hand-coded-policies and LLM-Agent based methods on all metrics.
+
 ```
 ⚙️ Codes -> rebuttal/hand-coded-policies
 ```
+
 Result: S²CG-Agent vs. hand-coded-policies & LLM-Agent 
 SafeFirst performs static analysis, fuzzing, and unit testing in a fixed order. FuncFirst performs unit testing, static analysis, and fuzzing in a fixed order.
 
@@ -121,9 +125,11 @@ Result: S²CG-Agent(GPT-4o) repeats 3 times.
 Result: Statistical testings on repeated results.
 
 <img width="662" height="156" alt="image" src="https://github.com/user-attachments/assets/73a963ed-244f-4717-8371-d44382f66f09" />
+
 ```
 📊 Outputs -> rebuttal/repeat
 ```
+
 ## Issue-2: Unit test & Unfair Setting:
 
 S²CG-Agent is available for unit testing scenarios and is not limited to the IDE. The unit tests used to train the scheduler, give feedback, and ultimately evaluate are separate.
