@@ -7,7 +7,7 @@ We applied S²CG-Agent on 1345 samples of SecCodePLT, which included both the po
 Due to time constraints, we only evaluated the performance of S²CG-Agent, of which the secure coding rate was calculated using benchmark evaluation.
 Results on SecCodePLT: S²CG-Agent vs. GPT-4o.
 
-📃 Outputs -> rebuttal/NewBenchmarks/results.json
+📊 Outputs -> rebuttal/NewBenchmarks/results.json
 
 <img width="425" height="97" alt="image" src="https://github.com/user-attachments/assets/dcf941e0-208a-44d2-92c5-1e2331c27d2e" />
 
