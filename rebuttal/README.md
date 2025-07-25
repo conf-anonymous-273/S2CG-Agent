@@ -1,6 +1,6 @@
 # Common Issues
 
-## 1.Limited benckmarks (Reviewer A-Q3/B-Issue/C-Issue)
+## 1.Limited benckmarks (Reviewer A-Issue/B-Issue/C-Issue)
 
 We applied S²CG-Agent on 1345 samples of SecCodePLT, which included both the possibility of models generating unsafe code and security test cases. Due to time constraints, we only evaluated the performance of S²CG-Agent. S²CG-Agent improved secure coding rate from 57% to 72.19%, improved SA-Pass@1 from 71.15% to 79.63%.
 
@@ -13,7 +13,7 @@ Results on SecCodePLT: S²CG-Agent vs. GPT-4o.
 
 <img width="425" height="97" alt="image" src="https://github.com/user-attachments/assets/dcf941e0-208a-44d2-92c5-1e2331c27d2e" />
 
-## 2.Fail analysis (Reviewer A-Issue/B-Q1)
+## 2.Fail analysis (Reviewer A-Q3/B-Q1)
 
 S²CG-Agent failures can be attributed to scheduler missed reports and LLM's insufficient ability to repair failures. We analyzed the best performing GPT-4o results: (1) Scheduler missed reports, function missed reports 0/164, static issues missed reports 1/285, Fuzz issues missed reports 6/285. (2) LLM repair failed, unit test repair failed 4/164, static problem repair failed 3/285, and fuzz problem repair failed 38/285. 
 
