@@ -15,7 +15,7 @@ Where the secure coding rate is obtained by the evaluation calculation provided 
 
 **LLM repair failed:** CWE-020, CWE-022, CWE-078, CWE-079, CWE-080, CWE-090, CWE-094, CWE-113, CWE-116, CWE-117, CWE-209, CWE-215, CWE-306, CWE-321, CWE-326, CWE-400, CWE-434, CWE-502, CWE-522, CWE-601, CWE-611, CWE-641, CWE-643, CWE-730, CWE-918.
 
-***LLM repair failed case analysis:***
+***LLM repair failed case analysis: (part)***
 
 | ID                  | Cause analysis                                               |
 | ------------------- | ------------------------------------------------------------ |
@@ -26,7 +26,7 @@ Where the secure coding rate is obtained by the evaluation calculation provided 
 | CWE-918_codeql_1.py | Incomplete implementation of subdomain whitelist function    |
 | CWE-020_codeql_1.py | Path concatenation or escape logic does not trigger any safe branches |
 
-***Scheduler missed report case analysis:***
+***Scheduler missed report case analysis: (part)***
 
 | ID                  | Cause analysis                                               |
 | ------------------- | ------------------------------------------------------------ |
@@ -37,7 +37,10 @@ Where the secure coding rate is obtained by the evaluation calculation provided 
 
 ## Reviewer A/C: Statistical testing
 
-We conducted statistical comparisons (p-value and effect size), and the results showed that there were significant differences between S²CG-Agent and baselines in almost all metrics (p<0.05).![截屏 2025-07-25 at 18.28.53@2x](https://p.ipic.vip/2rbxk9.png)![截屏 2025-07-25 at 18.29.22@2x](https://p.ipic.vip/t6l7id.png)![截屏 2025-07-25 at 18.29.54@2x](https://p.ipic.vip/t22q0l.png)
+We conducted statistical comparisons (p-value and effect size), and the results showed that there were significant differences between S²CG-Agent and baselines in almost all metrics (p<0.05).
+<img width="607" height="534" alt="image" src="https://github.com/user-attachments/assets/f159bd48-7e16-444c-8025-919978ba0207" />
+<img width="610" height="531" alt="image" src="https://github.com/user-attachments/assets/559342af-74d2-4f4f-ba8e-bb4344b6dbe4" />
+<img width="609" height="530" alt="image" src="https://github.com/user-attachments/assets/0b3433ec-99a9-45de-830f-08dbe1c9e7d7" />
 
 # Reviewer-A
 
