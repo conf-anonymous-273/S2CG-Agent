@@ -13,7 +13,7 @@ Results on SecCodePLT: S²CG-Agent vs. GPT-4o.
 
 ## Reviewer A/B: Failure cases
 
-S²CG-Agent failures can be attributed to scheduler prediction failure and LLM's insufficient ability to repair failures. We conducted a specific analysis on the best performing GPT-4o results: (1) Scheduler missed reports, function missed reports 0/164, static issues missed reports 1/285, Fuzz issues missed reports 6/285. (2) LLM repair failed, unit test repair failed 4/164, static problem repair failed 3/285, and fuzz problem repair failed 38/285. Among them, the CWE types involved in scheduler prediction failure include CWE-295/339/477/... The types of CWE involved in LLM repair failures are CWE-020/078/918/...We conducted a detailed analysis of the reasons for some sample errors.
+S²CG-Agent failures can be attributed to scheduler prediction failure and LLM's insufficient ability to repair failures. We conducted a specific analysis on the best performing GPT-4o results: (1) Scheduler missed reports, function missed reports 0/164, static issues missed reports 1/285, Fuzz issues missed reports 6/285. (2) LLM repair failed, unit test repair failed 4/164, static problem repair failed 3/285, and fuzz problem repair failed 38/285.
 ```
 📊 Outputs -> rebuttal/error_analysis
 ```
