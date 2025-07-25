@@ -112,6 +112,7 @@ Result: S²CG-Agent(GPT-4o) repeats 3 times.
 <img width="691" height="157" alt="image" src="https://github.com/user-attachments/assets/c31e51f5-dd48-409e-a2e3-abafb57aa0de" />
 
 Result: Statistical testings on repeated results.
+
 <img width="662" height="156" alt="image" src="https://github.com/user-attachments/assets/73a963ed-244f-4717-8371-d44382f66f09" />
 
 
