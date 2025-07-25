@@ -151,6 +151,10 @@ LLM enhanced code generation methods generally take a long time. For example, AS
 
 S²CG-Agent is affected by api call frequency and tool runtime in the working environment, while the original LLM only requires 1 call and is not affected.
 
+```
+H. Zhang, W. Cheng, Y. Wu and W. Hu, "A Pair Programming Framework for Code Generation via Multi-Plan Exploration and Feedback-Driven Refinement," 2024 39th IEEE/ACM International Conference on Automated Software Engineering (ASE), Sacramento, CA, USA, 2024, pp. 1319-1331. keywords: {Codes;Accuracy;Navigation;MIMICs;Collaboration;Benchmark testing;Software;Planning;Software engineering;Software development management;Code generation;Large language model;Agent;Pair programming},
+```
+
 ## Issue-5: Tools:
 
 CodeQL and Bandit are cross-complementary, CodeQL is good at logic vulnerabilities, and Bandit is sensitive to common Python vulnerabilities. They don't trigger unnecessary false positives in the experiment, and the feedback generated is beneficial to the robustness of the final generated code.
