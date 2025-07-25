@@ -40,10 +40,13 @@ Where the secure coding rate is obtained by the evaluation calculation provided 
 We conducted statistical testings (p-value and effect size), and the results showed that there were significant differences between S²CG-Agent and baselines in almost all metrics (p<0.05).
 
 Statistical testings on UT-Pass@1
+
 <img width="607" height="534" alt="image" src="https://github.com/user-attachments/assets/f159bd48-7e16-444c-8025-919978ba0207" />
 Statistical testings on SA-Pass@1
+
 <img width="610" height="531" alt="image" src="https://github.com/user-attachments/assets/559342af-74d2-4f4f-ba8e-bb4344b6dbe4" />
 Statistical testings on FT-Pass@1
+
 <img width="609" height="530" alt="image" src="https://github.com/user-attachments/assets/0b3433ec-99a9-45de-830f-08dbe1c9e7d7" />
 
 # Reviewer-A
