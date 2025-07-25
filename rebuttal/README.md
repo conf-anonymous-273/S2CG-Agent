@@ -97,7 +97,7 @@ In theory, the scheduler can continuously learn feedback through real-time predi
 
 To further prove the effectiveness without scheduler evolution, we extended the S²CG-Agent to a new benchmark, the results shows that the scheduler has good generalization ability, please see common issues.
 
-## Issue Inadequate related-works
+## Issue: Inadequate related-works
 
 We commit to adding the related works.
 
@@ -105,7 +105,7 @@ We commit to adding the related works.
 
 # Reviewer C
 
-## Issue: Results unreliable:
+## Issue: Results unreliable
 
 We repeated the S²CG-Agent(GPT-4o) three times, and the results of repeated experiments were stable. In addition, we aggregated the results of the repeated experiments and performed statistical testings. The results showed that there was no significant difference between the paper data and the repeated experiments results, showing the robustness of the results.
 
@@ -120,13 +120,13 @@ Result: Statistical testings on repeated results.
 📊 Outputs -> rebuttal/repeat
 ```
 
-## Issue: Unit test & Unfair Setting:
+## Issue: Unit test & Unfair Setting
 
 S²CG-Agent is available for unit testing scenarios and is not limited to the IDE. The unit tests used to train the scheduler, give feedback, and ultimately evaluate are separate.
 
 The original LLM that does not provide feedback is the baseline we set. We also set LLM-Agent for baselines, therefore, there is no unfair problem.
 
-## Issue: Time-cost:
+## Issue: Time-cost
 
 LLM enhanced code generation methods generally take a long time. For example, ASE'24 Best Paper PairCoder requires an average of 17.57 API calls for a complex problem, while S²CG-Agent only needs an average of 3.9 times.
 
@@ -136,7 +136,7 @@ S²CG-Agent is affected by api call frequency (because of personal user rights, 
 H. Zhang, W. Cheng, Y. Wu and W. Hu, "A Pair Programming Framework for Code Generation via Multi-Plan Exploration and Feedback-Driven Refinement," 2024 39th IEEE/ACM International Conference on Automated Software Engineering (ASE), Sacramento, CA, USA, 2024, pp. 1319-1331. keywords: {Codes;Accuracy;Navigation;MIMICs;Collaboration;Benchmark testing;Software;Planning;Software engineering;Software development management;Code generation;Large language model;Agent;Pair programming},
 ```
 
-## Issue: Tools:
+## Issue: Tools
 
 CodeQL and Bandit are cross-complementary, CodeQL is good at logic vulnerabilities, and Bandit is sensitive to common Python vulnerabilities. They don't trigger unnecessary false positives in the experiment, and the feedback generated is beneficial to the robustness of the final generated code.
 
