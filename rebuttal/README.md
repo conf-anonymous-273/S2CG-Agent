@@ -6,17 +6,21 @@ We applied S²CG-Agent on 1345 samples of SecCodePLT, which included both the po
 
 Due to time constraints, we only evaluated the performance of S²CG-Agent, of which the secure coding rate was calculated using benchmark evaluation.
 Results on SecCodePLT: S²CG-Agent vs. GPT-4o.
+
 ```
 📊 Outputs -> rebuttal/NewBenchmarks/results.json
 ```
+
 <img width="425" height="97" alt="image" src="https://github.com/user-attachments/assets/dcf941e0-208a-44d2-92c5-1e2331c27d2e" />
 
 ## Reviewer A/B: Failure cases
 
 S²CG-Agent failures can be attributed to scheduler prediction failure and LLM's insufficient ability to repair failures. We conducted a specific analysis on the best performing GPT-4o results: (1) Scheduler missed reports, function missed reports 0/164, static issues missed reports 1/285, Fuzz issues missed reports 6/285. (2) LLM repair failed, unit test repair failed 4/164, static problem repair failed 3/285, and fuzz problem repair failed 38/285.
+
 ```
 📊 Outputs -> rebuttal/error_analysis
 ```
+
 **Scheduler missed report:** CWE-295, CWE-339, CWE-477, CWE-601, CWE-611
 
 **LLM repair failed:** CWE-020, CWE-022, CWE-078, CWE-079, CWE-080, CWE-090, CWE-094, CWE-113, CWE-116, CWE-117, CWE-209, CWE-215, CWE-306, CWE-321, CWE-326, CWE-400, CWE-434, CWE-502, CWE-522, CWE-601, CWE-611, CWE-641, CWE-643, CWE-730, CWE-918.
@@ -72,6 +76,7 @@ We did experiments on safe priority and function priority and LLM-Agent settings
 ```
 
 Result: S²CG-Agent vs. hand-coded-policies & LLM-Agent 
+
 SafeFirst performs static analysis, fuzzing, and unit testing in a fixed order. FuncFirst performs unit testing, static analysis, and fuzzing in a fixed order.
 
 <img width="864" height="176" alt="image" src="https://github.com/user-attachments/assets/f57176ba-525a-4cdd-b923-e6666585fd7f" />
@@ -101,6 +106,7 @@ Please see common issues.
 ## Question-2
 
 The scheduler does not change after training. The scheduler was trained on 2970 samples generated in other benchmarks and already has good predictive capabilities. For fairness in the evaluation, real-time prediction data was not applied to update the scheduler.
+
 In theory, the scheduler can continuously learn feedback through real-time prediction data, especially data with erroneous predictions.
 
 To further prove the effectiveness without scheduler evolution, we extended the S²CG-Agent to a new benchmark, the results shows that the scheduler has good generalization ability, please see common issues.
@@ -147,7 +153,8 @@ S²CG-Agent is affected by api call frequency and tool runtime in the working en
 
 ## Issue-5: Tools:
 
-CodeQL and Bandit are cross-complementary, CodeQL is good at logic vulnerabilities, and Bandit is sensitive to common Python vulnerabilities.
+CodeQL and Bandit are cross-complementary, CodeQL is good at logic vulnerabilities, and Bandit is sensitive to common Python vulnerabilities. They don't trigger unnecessary false positives in the experiment, and the feedback generated is beneficial to the robustness of the final generated code.
+
 Bear is a static analysis tool as well, and Dai et al. did comparative experiments on them, proving that the overall detection coverage of the three is similar.
 
 ```
