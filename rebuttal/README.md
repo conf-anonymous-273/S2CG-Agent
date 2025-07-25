@@ -15,7 +15,7 @@ Results on SecCodePLT: S²CG-Agent vs. GPT-4o.
 
 ## 2.Fail analysis (Reviewer A-Issue/B-Q1)
 
-S²CG-Agent failures can be attributed to scheduler prediction failure and LLM's insufficient ability to repair failures. We analyzed the best performing GPT-4o results: (1) Scheduler missed reports, function missed reports 0/164, static issues missed reports 1/285, Fuzz issues missed reports 6/285. (2) LLM repair failed, unit test repair failed 4/164, static problem repair failed 3/285, and fuzz problem repair failed 38/285. 
+S²CG-Agent failures can be attributed to scheduler missed reports and LLM's insufficient ability to repair failures. We analyzed the best performing GPT-4o results: (1) Scheduler missed reports, function missed reports 0/164, static issues missed reports 1/285, Fuzz issues missed reports 6/285. (2) LLM repair failed, unit test repair failed 4/164, static problem repair failed 3/285, and fuzz problem repair failed 38/285. 
 
 ```
 📊 Outputs -> rebuttal/error_analysis
