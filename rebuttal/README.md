@@ -1,17 +1,13 @@
-Many thanks to all reviewers!
-To alleviate the reviewers' concerns, we provided the relevant results at: https://github.com/conf-anonymous-273/S2CG-Agent/tree/main/rebuttal, including the following responses:
-
 # Common Issues
 
 ## Reviewer A/B/C: Limited benckmarks
-
-We applied S²CG-Agent on 1345 samples of SecCodePLT, which included both the possibility of models generating unsafe code and security test cases. Due to time constraints, we only evaluated the performance of S²CG-Agent. S²CG-Agent improved secure coding rate from 57% to 72.19%, improved SA-Pass@1 from 71.15% to 79.63%. The results are shown in https://github.com/conf-anonymous-273/S2CG-Agent/tree/main/rebuttal.
-
-![截屏 2025-07-25 at 18.45.22@2x](https://p.ipic.vip/9ejfn0.png)
+ 
+Results: S²CG-Agent vs. GPT-4o on SecCodePLT, 1345 samples in total.
+<img width="425" height="97" alt="image" src="https://github.com/user-attachments/assets/c532746a-aef5-4bfb-a62f-908d5d5d58f7" />
+Due to time constraints, we only evaluated the performance of S²CG-Agent. S²CG-Agent improved secure coding rate from 57% to 72.19%, improved SA-Pass@1 from 71.15% to 79.63%.
+Where the secure coding rate is obtained by the evaluation calculation provided by SecCodePLT.
 
 ## Reviewer A/B: Failure cases
-
-S²CG-Agent failures can be attributed to (1) scheduler prediction failure and (2) LLM insufficient ability to repair failure, we conducted a specific analysis on the best performing GPT-4o results: (1) Scheduler missed reports, function missed reports 0/164, static issues missed reports 1/285, Fuzz issues missed reports 6/285. (2) LLM repair failed 4/164, static problem repair failed 3/285, and fuzz problem repair failed 38/285. Among them, the CWE types involved in scheduler prediction failure include CWE-295/339/477/...; The types of CWE involved in LLM repair failures are CWE-020/078/918/...We conducted a detailed analysis of the reasons for some sample errors, details are shown in https://github.com/conf-anonymous-273/S2CG-Agent/tree/main/rebuttal.
 
 **Scheduler missed report:** CWE-295, CWE-339, CWE-477, CWE-601, CWE-611
 
