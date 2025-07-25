@@ -45,6 +45,8 @@ S²CG-Agent failures can be attributed to scheduler missed reports and LLM's ins
 | CWE-295_author_2.py | The OpenSSL Context creation process did not trigger an exception path |
 | CWE-611_sonar_2.py  | XML parsing does not combine input file                      |
 
+Due to time constraints, we promise to conduct a more in-depth analysis of failure cases.
+
 ## 3.Statistical testing (Reviewer A-Issue/C-Issue)
 
 We conducted statistical testings (p-value and effect size), and the results showed that there were significant differences between S²CG-Agent and baselines in almost all metrics (p<0.05).
