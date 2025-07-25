@@ -1,6 +1,6 @@
 # Common Issues
 
-## 1. Reviewer A/B/C: Limited benckmarks
+## 1.Limited benckmarks (Reviewer A-Q3/B-Issue/C-Issue)
 
 We applied S²CG-Agent on 1345 samples of SecCodePLT, which included both the possibility of models generating unsafe code and security test cases. Due to time constraints, we only evaluated the performance of S²CG-Agent. S²CG-Agent improved secure coding rate from 57% to 72.19%, improved SA-Pass@1 from 71.15% to 79.63%.
 
@@ -13,9 +13,9 @@ Results on SecCodePLT: S²CG-Agent vs. GPT-4o.
 
 <img width="425" height="97" alt="image" src="https://github.com/user-attachments/assets/dcf941e0-208a-44d2-92c5-1e2331c27d2e" />
 
-## 2. Reviewer A/B: Failure cases
+## 2.Fail analysis (Reviewer A-Issue/B-Q1)
 
-S²CG-Agent failures can be attributed to scheduler prediction failure and LLM's insufficient ability to repair failures. We conducted a specific analysis on the best performing GPT-4o results: (1) Scheduler missed reports, function missed reports 0/164, static issues missed reports 1/285, Fuzz issues missed reports 6/285. (2) LLM repair failed, unit test repair failed 4/164, static problem repair failed 3/285, and fuzz problem repair failed 38/285.
+S²CG-Agent failures can be attributed to scheduler prediction failure and LLM's insufficient ability to repair failures. We analyzed the best performing GPT-4o results: (1) Scheduler missed reports, function missed reports 0/164, static issues missed reports 1/285, Fuzz issues missed reports 6/285. (2) LLM repair failed, unit test repair failed 4/164, static problem repair failed 3/285, and fuzz problem repair failed 38/285. 
 
 ```
 📊 Outputs -> rebuttal/error_analysis
@@ -45,7 +45,7 @@ S²CG-Agent failures can be attributed to scheduler prediction failure and LLM's
 | CWE-295_author_2.py | The OpenSSL Context creation process did not trigger an exception path |
 | CWE-611_sonar_2.py  | XML parsing does not combine input file                      |
 
-## 3. Reviewer A/C: Statistical testing
+## 3.Statistical testing (Reviewer A-Issue/C-Issue)
 
 We conducted statistical testings (p-value and effect size), and the results showed that there were significant differences between S²CG-Agent and baselines in almost all metrics (p<0.05).
 
@@ -67,7 +67,7 @@ Statistical testings on FT-Pass@1:
 
 # Reviewer-A
 
-## Question-1: VS. hand-coded policies or LLM-based agent
+## Q1: VS. hand-coded policies or LLM-based agent
 
 We did experiments on safe priority and function priority and LLM-Agent settings. Experimental results show that when safety is given priority, the SA-Pass@1 increases (98.59%) but the UT-Pass@1 decreases (92.68%); when function is given priority, the UT-Pass@1 increases (95.12%), but the SA-Pass@1 decreases (94.74). While LLM-Agent shows a compromise level in performance on all three metrics, S²CG-Agent outperforms hand-coded-policies and LLM-Agent based methods on all metrics.
 
@@ -81,29 +81,15 @@ SafeFirst performs static analysis, fuzzing, and unit testing in a fixed order. 
 
 <img width="864" height="176" alt="image" src="https://github.com/user-attachments/assets/f57176ba-525a-4cdd-b923-e6666585fd7f" />
 
-## Question-2: Ambiguous checker outputs
+## Q2: Ambiguous checker outputs
 
 The output of the checker will be handed over to the "Result Parser" and will not produce ambiguous output. However, we made limitations in prompt, that is, static analysis / fuzzing related modifications can be made without destroying functionality.
 
-## Question-3: Missed vulnerabilities.
-
-Please see common issue-2.
-
-## Issue-1: Statistical testing 
-
-Please see common issue-3.
-
-## Issue-2: Limited benchmarks
-
-Please see common issue-1.
+## Please see common issues 1 & 2 & 3.
 
 # Reviewer-B
 
-## Question-1: Scheduler fail
-
-Please see common issue-2.
-
-## Question-2: Scheduler evolve
+## Q2: Scheduler evolve
 
 The scheduler does not change after training. The scheduler was trained on 2970 samples generated in other benchmarks and already has good predictive capabilities. For fairness in the evaluation, real-time prediction data was not applied to update the scheduler.
 
@@ -111,20 +97,15 @@ In theory, the scheduler can continuously learn feedback through real-time predi
 
 To further prove the effectiveness without scheduler evolution, we extended the S²CG-Agent to a new benchmark, the results shows that the scheduler has good generalization ability, please see common issues.
 
-## Issue-1 Limited benchmarks
-
-Please see common issue-1.
-
-## Issue-2 Inadequate related-works
+## Issue Inadequate related-works
 
 We commit to adding the related works.
 
+## Please see common issues 1 & 2.
+
 # Reviewer C
 
-## Issue-1: No obvious improvement.
-Please see common issue-3.
-
-## Issue-2: Results unreliable:
+## Issue: Results unreliable:
 
 We repeated the S²CG-Agent(GPT-4o) three times, and the results of repeated experiments were stable. In addition, we aggregated the results of the repeated experiments and performed statistical testings. The results showed that there was no significant difference between the paper data and the repeated experiments results, showing the robustness of the results.
 
@@ -139,23 +120,23 @@ Result: Statistical testings on repeated results.
 📊 Outputs -> rebuttal/repeat
 ```
 
-## Issue-3: Unit test & Unfair Setting:
+## Issue: Unit test & Unfair Setting:
 
 S²CG-Agent is available for unit testing scenarios and is not limited to the IDE. The unit tests used to train the scheduler, give feedback, and ultimately evaluate are separate.
 
 The original LLM that does not provide feedback is the baseline we set. We also set LLM-Agent for baselines, therefore, there is no unfair problem.
 
-## Issue-4: Time-cost:
+## Issue: Time-cost:
 
 LLM enhanced code generation methods generally take a long time. For example, ASE'24 Best Paper PairCoder requires an average of 17.57 API calls for a complex problem, while S²CG-Agent only needs an average of 3.9 times.
 
-S²CG-Agent is affected by api call frequency and tool runtime in the working environment, while the original LLM only requires 1 call and is not affected.
+S²CG-Agent is affected by api call frequency (because of personal user rights, it would not be so slow in a production environment) and tool runtime in the working environment, while the original LLM only requires 1 call and is not affected.
 
 ```
 H. Zhang, W. Cheng, Y. Wu and W. Hu, "A Pair Programming Framework for Code Generation via Multi-Plan Exploration and Feedback-Driven Refinement," 2024 39th IEEE/ACM International Conference on Automated Software Engineering (ASE), Sacramento, CA, USA, 2024, pp. 1319-1331. keywords: {Codes;Accuracy;Navigation;MIMICs;Collaboration;Benchmark testing;Software;Planning;Software engineering;Software development management;Code generation;Large language model;Agent;Pair programming},
 ```
 
-## Issue-5: Tools:
+## Issue: Tools:
 
 CodeQL and Bandit are cross-complementary, CodeQL is good at logic vulnerabilities, and Bandit is sensitive to common Python vulnerabilities. They don't trigger unnecessary false positives in the experiment, and the feedback generated is beneficial to the robustness of the final generated code.
 
@@ -165,6 +146,4 @@ Bear is a static analysis tool as well, and Dai et al. did comparative experimen
 Dai, S., Xu, J., & Tao, G. (2025). A Comprehensive Study of LLM Secure Code Generation. *ArXiv, abs/2503.15554*.
 ```
 
-## Issue-6: Benchmarks:
-
-Please see common issue-1.
+## Please see common issues 1 & 3.
