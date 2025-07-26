@@ -7,19 +7,15 @@ We applied S²CG-Agent on 1345 samples of SecCodePLT, which included both the po
 Due to time constraints, we only evaluated the performance of S²CG-Agent, of which the secure coding rate was calculated using benchmark evaluation.
 Results on SecCodePLT: S²CG-Agent vs. GPT-4o.
 
+<img width="425" height="97" alt="image" src="https://github.com/user-attachments/assets/dcf941e0-208a-44d2-92c5-1e2331c27d2e" />
+
 ```
 📊 Outputs -> rebuttal/NewBenchmarks/results.json
 ```
 
-<img width="425" height="97" alt="image" src="https://github.com/user-attachments/assets/dcf941e0-208a-44d2-92c5-1e2331c27d2e" />
-
 ## 2.Fail analysis (Reviewer A-Q3/B-Q1)
 
 S²CG-Agent failures can be attributed to scheduler missed reports and LLM's insufficient ability to repair failures. We analyzed the best performing GPT-4o results: (1) Scheduler missed reports, function missed reports 0/164, static issues missed reports 1/285, Fuzz issues missed reports 6/285. (2) LLM repair failed, unit test repair failed 4/164, static problem repair failed 3/285, and fuzz problem repair failed 38/285. 
-
-```
-📊 Outputs -> rebuttal/error_analysis
-```
 
 **Scheduler missed report:** CWE-295, CWE-339, CWE-477, CWE-601, CWE-611
 
@@ -47,6 +43,10 @@ S²CG-Agent failures can be attributed to scheduler missed reports and LLM's ins
 
 Due to time constraints, we promise to conduct a more in-depth analysis of failure cases, including error classification and attribution summary.
 
+```
+📊 Outputs -> rebuttal/error_analysis
+```
+
 ## 3.Statistical testing (Reviewer A-Issue/C-Issue)
 
 We conducted statistical testings (p-value and effect size), and the results showed that there were significant differences between S²CG-Agent and baselines in almost all metrics (p<0.05).
@@ -73,15 +73,15 @@ Statistical testings on FT-Pass@1:
 
 We did experiments on safe priority and function priority and LLM-Agent settings. Experimental results show that when safety is given priority, the SA-Pass@1 increases (98.59%) but the UT-Pass@1 decreases (92.68%); when function is given priority, the UT-Pass@1 increases (95.12%), but the SA-Pass@1 decreases (94.74). While LLM-Agent shows a compromise level in performance on all three metrics, S²CG-Agent outperforms hand-coded-policies and LLM-Agent based methods on all metrics.
 
-```
-⚙️ Codes -> rebuttal/hand-coded-policies
-```
-
 Result: S²CG-Agent vs. hand-coded-policies & LLM-Agent 
 
 SafeFirst performs static analysis, fuzzing, and unit testing in a fixed order. FuncFirst performs unit testing, static analysis, and fuzzing in a fixed order.
 
 <img width="864" height="176" alt="image" src="https://github.com/user-attachments/assets/f57176ba-525a-4cdd-b923-e6666585fd7f" />
+
+```
+⚙️ Codes -> rebuttal/hand-coded-policies
+```
 
 ## Q2: Ambiguous checker outputs
 
