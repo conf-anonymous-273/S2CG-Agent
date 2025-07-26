@@ -1,5 +1,83 @@
-## Case 1 This case shows that the S²CG-Agent skips static analysis and fuzzing after fixing functional errors. However, AutoSafeCoder did not perform functional correctness check, resulting in static analysis problems. This shows that sometimes performing unit tests first helps pass static analysis checks, and the S²CG-Agent can predict the correct check order.
+## Case 1: The following two cases (A & B) show that the S²CG-Agent skips static analysis and fuzzing after fixing functional errors. However, AutoSafeCoder did not perform functional correctness check, resulting in static analysis problems and unit test failing. This shows that sometimes performing unit tests first helps pass static analysis checks, and the S²CG-Agent can predict the correct check order.
 
+(A)
+========================================
+HumanEval/67
+based llm: deepseek-chat: 19/60
+S²CG-Agent:
+
+ unit:fixed, round: 1 
+ static:skipped 
+ fuzz:skipped
+
+import re
+
+def fruit_distribution(s, n):
+    """
+    In this task, you will be given a string that represents a number of apples and oranges 
+    that are distributed in a basket of fruit. This basket contains 
+    apples, oranges, and mango fruits. Given the string that represents the total number of 
+    the oranges and apples and an integer that represents the total number of the fruits 
+    in the basket, return the number of the mango fruits in the basket.
+    
+    For example:
+    fruit_distribution("5 apples and 6 oranges", 19) -> 19 - 5 - 6 = 8
+    fruit_distribution("0 apples and 1 oranges", 3) -> 3 - 0 - 1 = 2
+    fruit_distribution("2 apples and 3 oranges", 100) -> 100 - 2 - 3 = 95
+    fruit_distribution("100 apples and 1 oranges", 120) -> 120 - 100 - 1 = 19
+    """
+    
+    # Use regular expressions to find all numeric values in the string
+    numbers = re.findall(r'\d+', s)
+    
+    # Convert the extracted numbers to integers
+    apples = int(numbers[0]) if numbers else 0
+    oranges = int(numbers[1]) if len(numbers) > 1 else 0
+    
+    # Calculate the number of mangoes
+    mangoes = n - apples - oranges
+    
+    return mangoes
+
+----------------------------------------
+AutoSafeCoder:
+
+ unit: fail
+ static:fixed 1 
+ fuzz: success
+
+
+import re
+
+def fruit_distribution(s, n):
+    # Define the expected pattern for the input string
+    pattern = r'^(\d+)\s+apples\s+(\d+)\s+oranges$'
+    
+    # Validate the input string against the pattern
+    match = re.match(pattern, s)
+    if not match:
+        raise ValueError("Input string does not match the expected format: 'X apples Y oranges'")
+    
+    # Extract the number of apples and oranges from the matched groups
+    num_apples = int(match.group(1))
+    num_oranges = int(match.group(2))
+
+    # Calculate the number of mangoes
+    num_mangoes = n - num_apples - num_oranges
+
+    return num_mangoes
+
+# Example usage:
+try:
+    result = fruit_distribution("10 apples 5 oranges", 20)
+    print(f"Number of mangoes: {result}")
+except ValueError as e:
+    print(e)
+
+========================================
+
+
+(B)
 ========================================
 HumanEval/160
 based llm: claude-3-5-sonnet: 26/48
@@ -78,7 +156,7 @@ def do_algebra(operator, operand):
 
 ========================================
 
-## Case 2 This case shows that S²CG-Agent fixed unit test failures and skipped unnecessary static analysis and fuzz testing. AutoSafeCoder performed unnecessary tests and did not meet functional requirements.
+## Case 2: The following case shows that S²CG-Agent fixed unit test failures and skipped unnecessary static analysis and fuzz testing. AutoSafeCoder performed unnecessary tests and did not meet functional requirements.
 
 ========================================
 based llm: claude-3-5-sonnet: 7/48
