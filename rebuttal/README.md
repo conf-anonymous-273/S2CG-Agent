@@ -9,9 +9,7 @@ Results on SecCodePLT: S²CG-Agent vs. GPT-4o.
 
 <img width="425" height="97" alt="image" src="https://github.com/user-attachments/assets/dcf941e0-208a-44d2-92c5-1e2331c27d2e" />
 
-```
-📊 Outputs -> rebuttal/NewBenchmarks/results.json
-```
+📊 Outputs -> [SecCodePLT Outputs](https://github.com/conf-anonymous-273/S2CG-Agent/blob/main/rebuttal/NewBenchmarks/results.json)
 
 ## 2.Fail analysis (Reviewer A-Q3/B-Q1)
 
@@ -43,9 +41,7 @@ S²CG-Agent failures can be attributed to scheduler missed reports and LLM's ins
 
 Due to time constraints, we promise to conduct a more in-depth analysis of failure cases, including error classification and attribution summary.
 
-```
-📊 Outputs -> rebuttal/error_analysis
-```
+📊 Outputs -> [error_analysis](https://github.com/conf-anonymous-273/S2CG-Agent/tree/main/rebuttal/error_analysis)
 
 ## 3.Statistical testing (Reviewer A-Issue/C-Issue)
 
@@ -63,10 +59,6 @@ Statistical testings on FT-Pass@1:
 
 <img width="609" height="530" alt="image" src="https://github.com/user-attachments/assets/be7c9925-e255-4d27-980c-eb20ce4510b7" />
 
-```
-⚙️ Codes -> rebuttal/statistical testings/p_value_cohen_d.py
-```
-
 # Reviewer-A
 
 ## Q1: VS. hand-coded policies or LLM-based agent
@@ -79,9 +71,7 @@ SafeFirst performs static analysis, fuzzing, and unit testing in a fixed order. 
 
 <img width="864" height="176" alt="image" src="https://github.com/user-attachments/assets/f57176ba-525a-4cdd-b923-e6666585fd7f" />
 
-```
-⚙️ Codes -> rebuttal/hand-coded-policies
-```
+⚙️ Codes -> [hand-coded-policies-code](https://github.com/conf-anonymous-273/S2CG-Agent/tree/main/rebuttal/hand-coded-policies)
 
 ## Q2: Ambiguous checker outputs
 
@@ -118,9 +108,7 @@ Result: Statistical testings on repeated results.
 
 <img width="662" height="156" alt="image" src="https://github.com/user-attachments/assets/73a963ed-244f-4717-8371-d44382f66f09" />
 
-```
-📊 Outputs -> rebuttal/repeat
-```
+📊 Outputs -> [repeat results](https://github.com/conf-anonymous-273/S2CG-Agent/tree/main/rebuttal/repeat)
 
 ## Issue: Unit test & Unfair Setting
 
@@ -152,7 +140,7 @@ Dai, S., Xu, J., & Tao, G. (2025). A Comprehensive Study of LLM Secure Code Gene
 
 We showed more motivation cases, see for details at:
 
-📊 Cases -> https://github.com/conf-anonymous-273/S2CG-Agent/blob/main/rebuttal/cases.txt
+📊 Cases -> [motivation cases](https://github.com/conf-anonymous-273/S2CG-Agent/blob/main/rebuttal/cases.txt)
 
 Analysis takes extra time, and we promise to show better motivation cases.
 
