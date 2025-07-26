@@ -154,4 +154,6 @@ We showed more motivation cases, see for details at:
 
 📊 Cases -> [[rebuttal/motivation_cases.txt](https://github.com/conf-anonymous-273/S2CG-Agent/blob/main/rebuttal/cases.txt)](https://github.com/conf-anonymous-273/S2CG-Agent/blob/main/rebuttal/cases.txt)
 
+Analysis takes extra time, and we promise to show better motivation cases.
+
 ## Please see common issues 1 & 3.
