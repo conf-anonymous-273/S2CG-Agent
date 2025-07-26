@@ -1,0 +1,138 @@
+## Case 1 This case shows that the S²CG-Agent skips static analysis and fuzzing after fixing functional errors. However, AutoSafeCoder did not perform functional correctness check, resulting in static analysis problems. This shows that sometimes performing unit tests first helps pass static analysis checks, and the S²CG-Agent can predict the correct check order.
+
+========================================
+HumanEval/160
+based llm: claude-3-5-sonnet: 26/48
+S²CG-Agent:
+
+ unit:fixed, round: 3 
+ static:skipped 
+ fuzz:skipped
+
+def do_algebra(operator, operand):
+    operators_precedence = {'**': 3, '*': 2, '/': 2, '//': 2, '+': 1, '-': 1}
+    result = operand[:]  # Create a copy of operand list
+    
+    # Process operators in order of precedence
+    for precedence in [3, 2, 1]:
+        i = 0
+        while i < len(operator):
+            if operators_precedence[operator[i]] == precedence:
+                if operator[i] == '+':
+                    result[i] = result[i] + result[i+1]
+                    result.pop(i+1)
+                    operator.pop(i)
+                    i -= 1
+                elif operator[i] == '-':
+                    result[i] = result[i] - result[i+1]
+                    result.pop(i+1)
+                    operator.pop(i)
+                    i -= 1
+                elif operator[i] == '*':
+                    result[i] = result[i] * result[i+1]
+                    result.pop(i+1)
+                    operator.pop(i)
+                    i -= 1
+                elif operator[i] == '//' or operator[i] == '/':
+                    result[i] = result[i] // result[i+1]
+                    result.pop(i+1)
+                    operator.pop(i)
+                    i -= 1
+                elif operator[i] == '**':
+                    result[i] = result[i] ** result[i+1]
+                    result.pop(i+1)
+                    operator.pop(i)
+                    i -= 1
+            i += 1
+            
+    return result[0]
+----------------------------------------
+AutoSafeCoder:
+
+ unit:no unit tests 
+ static:fixed 1 
+ fuzz:error running function
+
+
+def do_algebra(operator, operand):
+    # Initialize the result with the first element of the operand list
+    result = operand[0]
+    
+    # Iterate through the operator and operand lists to build and evaluate the expression
+    for i in range(len(operator)):
+        if operator[i] == '+':
+            result += operand[i + 1]
+        elif operator[i] == '-':
+            result -= operand[i + 1]
+        elif operator[i] == '*':
+            result *= operand[i + 1]
+        elif operator[i] == '//':
+            # Check for division by zero
+            if operand[i + 1] == 0:
+                raise ValueError("Division by zero is not allowed")
+            result //= operand[i + 1]
+        elif operator[i] == '**':
+            result **= operand[i + 1]
+    
+    return result
+
+========================================
+
+## Case 2 This case shows that S²CG-Agent fixed unit test failures and skipped unnecessary static analysis and fuzz testing. AutoSafeCoder performed unnecessary tests and did not meet functional requirements.
+
+========================================
+based llm: claude-3-5-sonnet: 7/48
+S²CG-Agent:
+
+ unit:fixed, round: 1 
+ static:skipped 
+ fuzz:skipped
+
+def is_palindrome(s: str) -> bool:
+    return s == s[::-1]
+
+def make_palindrome(string: str) -> str:
+    if not string:
+        return ''
+        
+    # Check if string itself is palindrome
+    if is_palindrome(string):
+        return string
+        
+    # Find longest palindrome suffix
+    for i in range(len(string)):
+        if is_palindrome(string[i:]):
+            # Get prefix before palindrome suffix
+            prefix = string[:i]
+            # Return string + reverse of prefix
+            return string + prefix[::-1]
+            
+    # If no palindrome suffix found, reverse entire string except last char
+    return string + string[:-1][::-1]
+----------------------------------------
+AutoSafeCoder:
+
+ unit: no unit tests 
+ static:success 
+ fuzz: success
+
+
+def is_palindrome(string: str) -> bool:
+    return string == string[::-1]
+
+def make_palindrome(string: str) -> str:
+    if not string:
+        return ''
+    
+    # Find the longest palindromic suffix
+    for i in range(len(string)):
+        if is_palindrome(string[i:]):
+            break
+    
+    # The prefix that comes before the palindromic suffix
+    prefix = string[:i]
+    
+    # Append the reverse of the prefix to the end of the string
+    return string + prefix[::-1]
+
+========================================
