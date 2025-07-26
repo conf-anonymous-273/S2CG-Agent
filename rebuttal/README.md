@@ -148,4 +148,12 @@ Bear is a static analysis tool as well, and Dai et al. did comparative experimen
 Dai, S., Xu, J., & Tao, G. (2025). A Comprehensive Study of LLM Secure Code Generation. *ArXiv, abs/2503.15554*.
 ```
 
+## Issue: Motivation case
+
+We showed more motivation cases, see for details at:
+
+```
+📊 Cases -> rebuttal/motivation_cases.txt
+```
+
 ## Please see common issues 1 & 3.
