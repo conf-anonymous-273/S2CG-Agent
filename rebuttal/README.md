@@ -153,7 +153,7 @@ Dai, S., Xu, J., & Tao, G. (2025). A Comprehensive Study of LLM Secure Code Gene
 We showed more motivation cases, see for details at:
 
 ```
-📊 Cases -> [rebuttal/motivation_cases.txt](https://github.com/conf-anonymous-273/S2CG-Agent/blob/main/rebuttal/cases.txt)
+📊 Cases -> [[rebuttal/motivation_cases.txt](https://github.com/conf-anonymous-273/S2CG-Agent/blob/main/rebuttal/cases.txt)](https://github.com/conf-anonymous-273/S2CG-Agent/blob/main/rebuttal/cases.txt)
 ```
 
 ## Please see common issues 1 & 3.
